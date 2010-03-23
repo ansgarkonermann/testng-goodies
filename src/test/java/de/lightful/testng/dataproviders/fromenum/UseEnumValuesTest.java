@@ -1,4 +1,4 @@
-package net.itikko.testng.dataproviders.FromEnum;
+package de.lightful.testng.dataproviders.fromenum;
 
 import org.testng.annotations.Test;
 
