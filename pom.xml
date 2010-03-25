@@ -3,15 +3,37 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>testng-goodies</groupId>
+  <groupId>de.lightful</groupId>
   <artifactId>testng-goodies</artifactId>
   <version>0.1-SNAPSHOT</version>
 
   <name>testng-goodies</name>
   <packaging>jar</packaging>
 
-  <url>http://maven.apache.org</url>
+  <url>http://passion.forco.de/</url>
 
+  <distributionManagement>
+    <downloadUrl>http://lightful.de/mvnrepo/public/releases</downloadUrl>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>de.lightful.releases</id>
+      <name>Public Release Repository on lightful.de</name>
+      <url>scp://lightful.de/mvnrepo/public/releases</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>de.lightful.snapshots</id>
+      <name>Public Snapshot Repository on lightful.de</name>
+      <url>scp://lightful.de/mvnrepo/public/snapshots</url>
+      <layout>default</layout>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <scm>
+    <connection>scm:git:ssh://github.com/ansgarkonermann/testng-goodies.git</connection>
+    <developerConnection>scm:git:ssh://github.com/ansgarkonermann/testng-goodies.git</developerConnection>
+  </scm>
 
   <dependencies>
     <dependency>
@@ -22,6 +44,38 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>1.0-beta-4</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <!--scmCommentPrefix>xxxx</scmCommentPrefix-->
+          <tagBase>https://subversion.hypoport.local/svnrepo/emma-nl/emma/tags</tagBase>
+          <releaseProfiles>ctw,continous-integration</releaseProfiles>
+          <goals>deploy</goals>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
 
 
 </project>
