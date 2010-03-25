@@ -4,7 +4,7 @@
 
   <groupId>de.lightful</groupId>
   <artifactId>testng-goodies</artifactId>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
 
   <name>testng-goodies</name>
   <packaging>jar</packaging>
