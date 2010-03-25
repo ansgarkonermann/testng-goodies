@@ -31,8 +31,8 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:git:ssh://github.com/ansgarkonermann/testng-goodies.git</connection>
-    <developerConnection>scm:git:ssh://github.com/ansgarkonermann/testng-goodies.git</developerConnection>
+    <connection>scm:git:git://git@github.com:ansgarkonermann/testng-goodies.git</connection>
+    <developerConnection>scm:git:git://git@github.com:ansgarkonermann/testng-goodies.git</developerConnection>
   </scm>
 
   <dependencies>
