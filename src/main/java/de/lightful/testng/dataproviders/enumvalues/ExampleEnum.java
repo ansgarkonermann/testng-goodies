@@ -1,5 +1,6 @@
-package de.lightful.testng.dataproviders.fromenum;
+package de.lightful.testng.dataproviders.enumvalues;
 
+@SuppressWarnings("unused")
 public enum ExampleEnum {
 
   RED,

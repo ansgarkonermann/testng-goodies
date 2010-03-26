@@ -1,4 +1,4 @@
-package de.lightful.testng.dataproviders.fromenum;
+package de.lightful.testng.dataproviders.enumvalues;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-public @interface EnumValuesFrom {
+public @interface ProvideEnumValuesOf {
 
   Class<? extends Enum> value();
 }

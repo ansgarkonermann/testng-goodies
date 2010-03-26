@@ -43,6 +43,12 @@
       <classifier>jdk15</classifier>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-assert</artifactId>
+      <version>1.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
