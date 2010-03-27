@@ -20,10 +20,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.lightful</groupId>
-  <artifactId>testng.dataproviders</artifactId>
+  <artifactId>testng-dataproviders</artifactId>
   <version>0.1-SNAPSHOT</version>
 
-  <name>testng-goodies</name>
+  <name>testng-dataproviders</name>
   <packaging>jar</packaging>
   <url>http://passion.forco.de/</url>
   <inceptionYear>2010</inceptionYear>
