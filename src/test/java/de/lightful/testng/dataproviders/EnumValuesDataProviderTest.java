@@ -14,27 +14,40 @@
  * limitations under the License.                                             *
  ******************************************************************************/
 
-package de.lightful.testng.dataproviders.enumvalues;
+package de.lightful.testng.dataproviders;
 
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
-public class EnumValuesDataProvider {
+import static org.fest.assertions.Assertions.assertThat;
 
-  @DataProvider
-  public static Object[][] getAllValues(Method testMethod) {
-    ProvideEnumValuesOf provideEnumValuesOfAnnotation = testMethod.getAnnotation(ProvideEnumValuesOf.class);
-    Class<? extends Enum> sourceOfLiterals = provideEnumValuesOfAnnotation.value();
-    Enum[] enumLiterals = sourceOfLiterals.getEnumConstants();
-    return createArrayContainingAllEnumValues(enumLiterals);
+@Test
+public class EnumValuesDataProviderTest {
+
+  private Map<ExampleEnum, Integer> allExpectedEnumLiterals;
+
+  @BeforeClass
+  public void initExpectedEnumLiterals() {
+    allExpectedEnumLiterals = new HashMap<ExampleEnum, Integer>(ExampleEnum.values().length);
+    for (ExampleEnum expectedEnumValue : ExampleEnum.values()) {
+      allExpectedEnumLiterals.put(expectedEnumValue, 0);
+    }
   }
 
-  private static Object[][] createArrayContainingAllEnumValues(Enum[] enumLiterals) {
-    Object[][] resultArray = new Object[enumLiterals.length][];
-    for (int i = 0; i < enumLiterals.length; i++) {
-      resultArray[i] = new Enum[] {enumLiterals[i]};
+  @AfterClass
+  public void verifyEachEnumLiteralPassedOnce() {
+    for (ExampleEnum expectedEnumValue : ExampleEnum.values()) {
+      assertThat(allExpectedEnumLiterals.get(expectedEnumValue)).as("Number of method calls for '" + expectedEnumValue + "'").isEqualTo(1);
     }
-    return resultArray;
+  }
+
+  @Test(dataProviderClass = EnumValuesDataProvider.class, dataProvider = "getAll")
+  @EnumValuesOf(ExampleEnum.class)
+  public void takeEachEnumLiteralAsParameter(ExampleEnum enumLiteral) {
+    allExpectedEnumLiterals.put(enumLiteral, allExpectedEnumLiterals.get(enumLiteral) + 1);
   }
 }

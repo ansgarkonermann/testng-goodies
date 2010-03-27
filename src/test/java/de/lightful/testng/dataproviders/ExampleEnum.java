@@ -14,18 +14,17 @@
  * limitations under the License.                                             *
  ******************************************************************************/
 
-package de.lightful.testng.dataproviders.enumvalues;
+package de.lightful.testng.dataproviders;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+@SuppressWarnings("unused")
+public enum ExampleEnum {
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-@Documented
-public @interface ProvideEnumValuesOf {
-
-  Class<? extends Enum> value();
+  RED,
+  GREEN,
+  BLUE,
+  YELLOW,
+  TURQUOISE,
+  CYAN,
+  BLACK,
+  WHITE
 }
